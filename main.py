@@ -41,9 +41,9 @@ def scroll_page(driver, pixels, interval, duration):
 def click_second_button(driver):
     try:
         # Tìm tất cả các thẻ div với class yêu cầu
-        divs = driver.find_elements(By.CLASS_NAME, "x14yjl9h.xudhj91.x18nykt9.xww2gxu.x1iorvi4.x150jy0e.xjkvuk6.x1e558r4.x1a2a7pz")
-        buttons = divs[1].find_elements(By.TAG_NAME, "button")
-        buttons[1].click()
+        divs = driver.find_elements(By.XPATH, "//div[contains(@class, 'x14yjl9h.xudhj91.x18nykt9.xww2gxu.x1iorvi4.x150jy0e.xjkvuk6.x1e558r4.x1a2a7pz')]")
+        second_div = divs[1]
+        second_div.click()
         print("Clicked the second button in the second div.")
     except Exception as e:
         print(f"Error during button click: {e}")
@@ -57,7 +57,7 @@ def perform_task(account):
     try:
         # Truy cập Facebook
         driver.get("https://www.facebook.com/")
-        scroll_page(driver, 700, 30, 5 * 60)  # Scroll mỗi 30s trong 5 phút
+        scroll_page(driver, 100, 5, 5 * 60)  # Scroll mỗi 5s trong 5 phút
 
         # Truy cập Facebook Watch
         driver.get("https://www.facebook.com/watch")
