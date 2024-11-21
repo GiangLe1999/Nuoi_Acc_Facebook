@@ -30,11 +30,11 @@ accounts = [
     #     "chrome_path": "C:\\Others\\Facebook Accounts\\caytienbmt02\\GoogleChromePortable\\GoogleChromePortable.exe",
     #     "user_data_dir": "C:\\Others\\Facebook Accounts\\caytienbmt02\\GoogleChromePortable\\Data\\profile\\Default",
     # },
-    {
-        "name": "thanhtruong1691",
-        "chrome_path": "C:\\Others\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\Data\\profile\\Default",
-    },
+    # {
+    #     "name": "thanhtruong1691",
+    #     "chrome_path": "C:\\Others\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\Data\\profile\\Default",
+    # },
     {
         "name": "caytienbmt09",
         "chrome_path": "C:\\Others\\Facebook Accounts\\caytienbmt09\\GoogleChromePortable\\GoogleChromePortable.exe",
@@ -56,6 +56,9 @@ def init_driver(account):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-extensions")
     options.add_argument(f"--remote-debugging-port=9300")  # Cổng Debug riêng
+    # Có thể chạy headless, nhưng muốn reset để có thể mở GUI thì cần xóa hết Chrome session
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu") # Tắt GPU (tăng hiệu năng khi chạy headless)
 
     # Sử dụng webdriver-manager để tự động tải ChromeDriver
     service = Service(ChromeDriverManager().install())
@@ -82,7 +85,7 @@ def click_second_button(driver):
 
 # Vòng lặp chính
 def perform_task(account):
-    print(f"Initializing task for account: {account['name']}")
+    print(f"Bắt đầu nuôi tài khoản: {account['name']}")
     driver = init_driver(account)
 
     try:
@@ -120,6 +123,7 @@ def perform_task(account):
         print(f"Error during task: {e}")
         pass
     finally:
+        print(f"Nuôi xong tài khoản: {account['name']}")
         driver.quit()
         print("Driver closed.")
 
