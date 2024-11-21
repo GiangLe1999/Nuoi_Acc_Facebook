@@ -1,4 +1,5 @@
 import time
+import random
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -9,10 +10,40 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
 # Cấu hình tài khoản
 accounts = [
+    # {
+    #     "name": "legiangbmt017",
+    #     "chrome_path": "C:\\Others\\Facebook Accounts\\legiangbmt017\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Facebook Accounts\\legiangbmt017\\GoogleChromePortable\\Data\\profile\\Default",
+    # },
+    # {
+    #     "name": "n17dcqt014",
+    #     "chrome_path": "C:\\Others\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\Data\\profile\\Default",
+    # },
+    # {
+    #     "name": "caytienbmt05",
+    #     "chrome_path": "C:\\Others\\Facebook Accounts\\caytienbmt05\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Facebook Accounts\\caytienbmt05\\GoogleChromePortable\\Data\\profile\\Default",
+    # },
+    # {
+    # "name": "caytienbmt02", # Đang checkpoint
+    #     "chrome_path": "C:\\Others\\Facebook Accounts\\caytienbmt02\\GoogleChromePortable\\GoogleChromePortable.exe",
+    #     "user_data_dir": "C:\\Others\\Facebook Accounts\\caytienbmt02\\GoogleChromePortable\\Data\\profile\\Default",
+    # },
     {
-        "name": "D17CQQT01",
-        "chrome_path": "C:\\Others\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\Data\\profile\\Default",
+        "name": "thanhtruong1691",
+        "chrome_path": "C:\\Others\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\Data\\profile\\Default",
+    },
+    {
+        "name": "caytienbmt09",
+        "chrome_path": "C:\\Others\\Facebook Accounts\\caytienbmt09\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Facebook Accounts\\caytienbmt09\\GoogleChromePortable\\Data\\profile\\Default",
+    },
+    {
+        "name": "lttskda",
+        "chrome_path": "C:\\Others\\Facebook Accounts\\lttskda\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "C:\\Others\\Facebook Accounts\\lttskda\\GoogleChromePortable\\Data\\profile\\Default",
     },
 ]
 
@@ -41,7 +72,7 @@ def scroll_page(driver, pixels, interval, duration):
 def click_second_button(driver):
     try:
         # Tìm tất cả các thẻ div với class yêu cầu
-        divs = driver.find_elements(By.XPATH, "//div[contains(@class, 'x14yjl9h.xudhj91.x18nykt9.xww2gxu.x1iorvi4.x150jy0e.xjkvuk6.x1e558r4.x1a2a7pz')]")
+        divs = driver.find_elements(By.XPATH, "//div[contains(@class, 'x14yjl9h xudhj91 x18nykt9 xww2gxu x1iorvi4 x150jy0e xjkvuk6 x1e558r4 x1a2a7pz')]")
         second_div = divs[1]
         second_div.click()
         print("Clicked the second button in the second div.")
@@ -57,24 +88,36 @@ def perform_task(account):
     try:
         # Truy cập Facebook
         driver.get("https://www.facebook.com/")
-        scroll_page(driver, 100, 5, 5 * 60)  # Scroll mỗi 5s trong 5 phút
+        print("Truy cập Facebook")
+        random_time = random.randint(5, 10) * 60  # Random từ 5 đến 10 phút
+        random_scroll_value = random.randint(200, 500)  # Random giá trị scroll trong khoảng 50 đến 150
+        scroll_page(driver, random_scroll_value, 5, random_time)  # Scroll mỗi 5s trong thời gian random
 
         # Truy cập Facebook Watch
         driver.get("https://www.facebook.com/watch")
-        scroll_page(driver, 700, 60, 5 * 60)  # Scroll mỗi 1 phút trong 5 phút
+        print("Truy cập Facebook Watch")
+        random_time = random.randint(5, 10) * 60  # Random từ 5 đến 10 phút
+        random_scroll_value = random.randint(300, 700)  # Random giá trị scroll trong khoảng 500 đến 900
+        scroll_page(driver, random_scroll_value, 60, random_time)  # Scroll mỗi 1 phút trong thời gian random
 
         # Truy cập Facebook Live Watch
         driver.get("https://www.facebook.com/watch/live/?ref=watch")
-        scroll_page(driver, 700, 60, 5 * 60)  # Scroll mỗi 1 phút trong 5 phút
+        print("Truy cập Facebook Live Watch")
+        random_time = random.randint(5, 10) * 60  # Random từ 5 đến 10 phút
+        random_scroll_value = random.randint(300, 700)  # Random giá trị scroll trong khoảng 500 đến 900
+        scroll_page(driver, random_scroll_value, 60, random_time)  # Scroll mỗi 1 phút trong thời gian random
 
         # Truy cập Facebook Reel
         driver.get("https://www.facebook.com/reel/")
+        print("Truy cập Facebook Reel")
+        random_time = random.randint(5, 10) * 60  # Random từ 5 đến 10 phút
         start_time = time.time()
-        while time.time() - start_time < 5 * 60:  # Trong 5 phút
+        while time.time() - start_time < random_time:  # Trong thời gian random
             time.sleep(50)  # Chờ 50 giây
             click_second_button(driver)  # Click vào nút thứ 2 trong thẻ div phù hợp
     except Exception as e:
         print(f"Error during task: {e}")
+        pass
     finally:
         driver.quit()
         print("Driver closed.")
