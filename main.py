@@ -89,31 +89,32 @@ def perform_task(account):
         # Truy cập Facebook
         driver.get("https://www.facebook.com/")
         print("Truy cập Facebook")
-        random_time = random.randint(5, 10) * 60  # Random từ 5 đến 10 phút
-        random_scroll_value = random.randint(200, 500)  # Random giá trị scroll trong khoảng 50 đến 150
+        random_time = random.randint(3, 7) * 60  # Random từ 5 đến 10 phút
+        random_scroll_value = random.randint(200, 1000)  # Random giá trị scroll trong khoảng 50 đến 150
         scroll_page(driver, random_scroll_value, 5, random_time)  # Scroll mỗi 5s trong thời gian random
 
         # Truy cập Facebook Watch
         driver.get("https://www.facebook.com/watch")
         print("Truy cập Facebook Watch")
-        random_time = random.randint(5, 10) * 60  # Random từ 5 đến 10 phút
-        random_scroll_value = random.randint(300, 700)  # Random giá trị scroll trong khoảng 500 đến 900
+        random_time = random.randint(3, 7) * 60  # Random từ 5 đến 10 phút
+        random_scroll_value = random.randint(300, 1000)  # Random giá trị scroll trong khoảng 500 đến 900
         scroll_page(driver, random_scroll_value, 60, random_time)  # Scroll mỗi 1 phút trong thời gian random
 
         # Truy cập Facebook Live Watch
         driver.get("https://www.facebook.com/watch/live/?ref=watch")
         print("Truy cập Facebook Live Watch")
-        random_time = random.randint(5, 10) * 60  # Random từ 5 đến 10 phút
-        random_scroll_value = random.randint(300, 700)  # Random giá trị scroll trong khoảng 500 đến 900
+        random_time = random.randint(3, 7) * 60  # Random từ 5 đến 10 phút
+        random_scroll_value = random.randint(300, 1000)  # Random giá trị scroll trong khoảng 500 đến 900
         scroll_page(driver, random_scroll_value, 60, random_time)  # Scroll mỗi 1 phút trong thời gian random
 
         # Truy cập Facebook Reel
         driver.get("https://www.facebook.com/reel/")
         print("Truy cập Facebook Reel")
-        random_time = random.randint(5, 10) * 60  # Random từ 5 đến 10 phút
+        random_time = random.randint(5, 15) * 60  # Random từ 5 đến 10 phút
         start_time = time.time()
         while time.time() - start_time < random_time:  # Trong thời gian random
-            time.sleep(50)  # Chờ 50 giây
+            random_sleep = random.randint(30, 55)
+            time.sleep(random_sleep)  # Chờ 50 giây
             click_second_button(driver)  # Click vào nút thứ 2 trong thẻ div phù hợp
     except Exception as e:
         print(f"Error during task: {e}")
