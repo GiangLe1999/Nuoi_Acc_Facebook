@@ -4,7 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
-chrome_driver_path = r"C:\Workspace\Python\chromedriver.exe"
+chrome_driver_path = r"D:\Workspace\Python\chromedriver.exe"
 
 # Cấu hình tài khoản
 accounts = [
