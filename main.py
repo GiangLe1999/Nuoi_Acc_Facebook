@@ -3,7 +3,6 @@ import random
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support import expected_conditions as EC
 
 chrome_driver_path = r"C:\Workspace\Python\chromedriver.exe"
 
@@ -11,38 +10,38 @@ chrome_driver_path = r"C:\Workspace\Python\chromedriver.exe"
 accounts = [
     {
         "name": "legiangbmt017",
-        "chrome_path": "C:\\Others\\Facebook Accounts\\legiangbmt017\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Facebook Accounts\\legiangbmt017\\GoogleChromePortable\\Data\\profile\\Default",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\legiangbmt017\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\legiangbmt017\\GoogleChromePortable\\Data\\profile\\Default",
     },
     {
         "name": "n17dcqt014",
-        "chrome_path": "C:\\Others\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\Data\\profile\\Default",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\Data\\profile\\Default",
     },
     {
         "name": "caytienbmt05",
-        "chrome_path": "C:\\Others\\Facebook Accounts\\caytienbmt05\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Facebook Accounts\\caytienbmt05\\GoogleChromePortable\\Data\\profile\\Default",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\caytienbmt05\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\caytienbmt05\\GoogleChromePortable\\Data\\profile\\Default",
     },
     {
-    "name": "caytienbmt02", 
-        "chrome_path": "C:\\Others\\Facebook Accounts\\caytienbmt02\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Facebook Accounts\\caytienbmt02\\GoogleChromePortable\\Data\\profile\\Default",
+        "name": "caytienbmt02", 
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\caytienbmt02\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\caytienbmt02\\GoogleChromePortable\\Data\\profile\\Default",
     },
     {
         "name": "thanhtruong1691",
-        "chrome_path": "C:\\Others\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\Data\\profile\\Default",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\Data\\profile\\Default",
     },
     {
         "name": "caytienbmt09",
-        "chrome_path": "C:\\Others\\Facebook Accounts\\caytienbmt09\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Facebook Accounts\\caytienbmt09\\GoogleChromePortable\\Data\\profile\\Default",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\caytienbmt09\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\caytienbmt09\\GoogleChromePortable\\Data\\profile\\Default",
     },
     {
         "name": "lttskda",
-        "chrome_path": "C:\\Others\\Facebook Accounts\\lttskda\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Facebook Accounts\\lttskda\\GoogleChromePortable\\Data\\profile\\Default",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\lttskda\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\lttskda\\GoogleChromePortable\\Data\\profile\\Default",
     },
 ]
 
@@ -89,7 +88,7 @@ def scroll_page(driver, pixels, interval, duration):
 def click_second_button(driver):
     try:
         # Tìm tất cả các thẻ div với class yêu cầu
-        divs = driver.find_elements(By.XPATH, "//div[contains(@class, 'x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xa49m3k xqeqjp1 x2hbi6w x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 x16tdsg8 x1hl2dhg x1ja2u2z x1t137rt x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x3nfvp2 x1q0g3np x87ps6o x1lku1pv x1a2a7pz x5ve5x3')]")
+        divs = driver.find_elements(By.XPATH, "//div[contains(@class, 'x14yjl9h xudhj91 x18nykt9 xww2gxu x1iorvi4 x150jy0e xjkvuk6 x1e558r4 x1a2a7pz')]")
         second_div = divs[1]
         second_div.click()
         print("Clicked the second button in the second div.")
