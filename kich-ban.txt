@@ -1,19 +1,47 @@
 import time
+import random
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
+chrome_driver_path = r"D:\Workspace\Python\chromedriver.exe"
 
 # Cấu hình tài khoản
 accounts = [
     {
-        "name": "D17CQQT01",
-        "chrome_path": "C:\\Others\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\GoogleChromePortable.exe",
-        "user_data_dir": "C:\\Others\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\Data\\profile\\Default",
+        "name": "legiangbmt017",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\legiangbmt017\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\legiangbmt017\\GoogleChromePortable\\Data\\profile\\Default",
+    },
+    {
+        "name": "n17dcqt014",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\n17dcqt014\\GoogleChromePortable\\Data\\profile\\Default",
+    },
+    {
+        "name": "caytienbmt05",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\caytienbmt05\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\caytienbmt05\\GoogleChromePortable\\Data\\profile\\Default",
+    },
+    {
+        "name": "caytienbmt02", 
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\caytienbmt02\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\caytienbmt02\\GoogleChromePortable\\Data\\profile\\Default",
+    },
+    {
+        "name": "thanhtruong1691",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\thanhtruong1691\\GoogleChromePortable\\Data\\profile\\Default",
+    },
+    {
+        "name": "caytienbmt09",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\caytienbmt09\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\caytienbmt09\\GoogleChromePortable\\Data\\profile\\Default",
+    },
+    {
+        "name": "lttskda",
+        "chrome_path": "D:\\Accounts\\Facebook Accounts\\lttskda\\GoogleChromePortable\\GoogleChromePortable.exe",
+        "user_data_dir": "D:\\Accounts\\Facebook Accounts\\lttskda\\GoogleChromePortable\\Data\\profile\\Default",
     },
 ]
 
@@ -26,31 +54,68 @@ def init_driver(account):
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--disable-extensions")
     options.add_argument(f"--remote-debugging-port=9300")  # Cổng Debug riêng
+    # Có thể chạy headless, nhưng muốn reset để có thể mở GUI thì cần xóa hết Chrome session
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu") # Tắt GPU (tăng hiệu năng khi chạy headless)
+    options.add_argument("--disablce-software-rasterizer")
+    options.add_argument("--disable-infobars")
+    options.add_argument("--disable-notifications")
+    options.add_argument("--disable-logging")
+    options.add_argument("--disable-default-apps")
+    options.add_argument("--disable-popup-blocking")
+    options.add_argument("--disable-prompt-on-repost")
+    options.add_argument("--disable-sync")
+    options.add_argument("--disable-web-security")
+    options.add_argument("--disable-translate")
+    options.add_argument("--disable-hang-monitor")
+    options.add_argument("--disable-client-side-phishing-detection")
+    options.add_argument("--disable-component-update")
+    options.add_argument("--memory-model=low")
+    options.add_argument("--disable-backing-store-limit")
 
     # Sử dụng webdriver-manager để tự động tải ChromeDriver
-    service = Service(ChromeDriverManager().install())
+    service = Service(chrome_driver_path)
     return webdriver.Chrome(service=service, options=options)
 
+# Scroll trang web
+def scroll_page(driver, pixels, interval, duration):
+    start_time = time.time()
+    while time.time() - start_time < duration:
+        driver.execute_script(f"window.scrollBy(0, {pixels});")
+        time.sleep(interval)
 
 # Vòng lặp chính
 def perform_task(account):
-    print(f"Initializing task for account: {account['name']}")
+    print(f"Bắt đầu spam bằng tài khoản: {account['name']}")
     driver = init_driver(account)
-    
-    driver.quit()
-    print("Driver closed.")
+
+    try:
+        # Search result page of Facebook
+        driver.get("https://www.facebook.com/search/groups/?q=cho%20thu%C3%AA%20nh%C3%A0%20%C4%91%C4%83k%20l%C4%83k")
+
+   
+    except Exception as e:
+        print(f"Error during task: {e}")
+        pass
+    finally:
+        print(f"Nuôi xong tài khoản: {account['name']}")
+        driver.quit()
+        print("Driver closed.")
 
 # Thực thi
 for account in accounts:
     perform_task(account)
 
-Đây là code để mở lần lượt các chrome profile với mục đích nuôi acc.
+Sau khi truy cập đến URL, tìm tất cả các thẻ a có class x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1sur9pj xkrqix3 xzsf02u x1pd3egz
 
-Sau đây là các nhiệm vụ tôi cần bạn viết logic:
-- Truy cập: https://www.facebook.com/
-- Trong vòng 5 phút, chỉ cần làm 1 công việc duy nhất là cứ mỗi 30s scroll xuống tầm 700px
-- Sau đó, truy cập trang này: https://www.facebook.com/watch, trong vòng 5 phút, chỉ cần làm 1 công việc duy nhất là cứ mỗi 1 phút scroll xuống tầm 700px
-- Sau đó, truy cập trang này: https://www.facebook.com/watch/live/?ref=watch, trong vòng 5 phút, chỉ cần làm công việc duy nhất là mõi 1 phút scroll xuống tầm 700px
-- Sau đó, truy cập trang này: https://www.facebook.com/reel/, trong khoảng thời gian 5 phút, cứ mỗi 50s phút thì tìm kiếm tất cả thẻ div có class x14yjl9h xudhj91 x18nykt9 xww2gxu x1iorvi4 x150jy0e xjkvuk6 x1e558r4 x1a2a7pz trên trang, sau khi tìm thấy thì tiến hành click vào nút thứ 2 được tìm thấy
+Có bao nhiêu thẻ a thì tạo bấy nhiêu vòng lặp,
+Tại mỗi vòng lặp, tiến hành lấy url của thẻ a,  mở url này trong 1 tab mới.
+Tab mới này chính group mà tôi cần đăng bài Facebook.
+Tại đây, tìm kiếm div có class xi81zsa x1lkfr7t xkjl1po x1mzt3pk xh8yej3 x13faqbe, nếu tìm thấy thì tiến hành click vào .
 
-Sau khi hoàn tất các công việc trên, chuyển sang chrome profile tiếp theo
+Sau khi click, chờ cho tới khi 1 thẻ div có class _1p1t xuất hiện. Nếu tìm thấy thì click vào, Sau khi click tiến hành nhập vào nội dung bài viết facebook cần đăng.
+
+
+Sau khi nhập nội dung xong, tìm kiếm tất cả các nút có class x1ja2u2z x78zum5 x2lah0s x1n2onr6 xl56j7k x6s0dn4 xozqiw3 x1q0g3np xi112ho x17zwfj4 x585lrc x1403ito x972fbf xcfux6l x1qhh985 xm0m39n x9f619 xn6708d x1ye3gou xtvsq51 x1r1pt67,
+
+Nếu tìm thấy thì tiến hành click vào nút thứ 3 để đăng bài. SAu khi click đăng bài, chờ tầm 20s rồi tắt tab.
